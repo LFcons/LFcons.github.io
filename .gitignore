@@ -3,7 +3,7 @@ Site
 javascript_anim
 intl_art
 ew/
-*.html
-*.js
-*.css
-*.jpg
+main/*.html
+main/*.js
+main/*.css
+main/*.jpg
