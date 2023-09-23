@@ -1,0 +1,15 @@
+name: Envoi de courrier
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout du code
+      uses: actions/checkout@v2
+
+    - name: Exécuter le script PHP d'envoi de courrier
+      run: php sendmail.php
