@@ -7,9 +7,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      SMTP_ADRESS: ${{ secrets.SMTP_ADRESS }}
+      SMTP_P: ${{ secrets.SMTP_P }}
+
     steps:
     - name: Checkout du code
       uses: actions/checkout@v2
 
     - name: Exécuter le script PHP d'envoi de courrier
-      run: php sendmail.php
+      run: php sendmemail.php
