@@ -7,7 +7,7 @@ require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/SMTP.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Fonction pour nettoyer et valider les données
     function sanitize_input($input) {
         $input = trim($input);
@@ -52,9 +52,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->send();
         echo "Votre message a été envoyé avec succès.";
     } catch (Exception $e) {
-        echo "Une erreur s'est produite lors de l'envoi de votre message : "; //{$mail->ErrorInfo}";
+        echo "Une erreur s'est produite lors de l'envoi de votre message : {$mail->ErrorInfo}";
     }
-} else {
-    echo "Accès refusé.";
-}
+//} else {
+//    echo "Accès refusé.";
+    echo  $mail->ErrorInfo;
+//}
 ?>
