@@ -301,8 +301,12 @@
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
-								<form method="post" action="#">
+								<form method="post" id="formulaireContactes" action="https://github.com/votre_utilisateur/votre_repo/actions/workflows/nom_de_votre_workflow.yml/dispatch">
 									<div class="fields">
+ <div id="message-container" class="hidden"> <!-- Ajout d'un conteneur caché pour les messages -->
+            <div id="message-content"></div>
+            <span id="close-message" class="close" onclick="closeMessage()">×</span> <!-- Bouton de fermeture du message -->
+        </div>
 										<div class="field half">
 											<label for="name">Name</label>
 											<input type="text" name="name" id="name" />
@@ -317,8 +321,8 @@
 										</div>
 									</div>
 									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Reset" /></li>
+										<li><input type="submit" value="Envoyer le mail" class="primary" /></li>
+										<li><input type="reset" value="Reset le formulaire" /></li>
 									</ul>
 								</form>
 								<ul class="icons">
@@ -589,6 +593,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/mail.js"></script>
 
 	</body>
 </html>
