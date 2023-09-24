@@ -2,11 +2,7 @@ name: Envoi de courrier
 
 on:
   workflow_dispatch:
-    inputs:
-      event_type:
-        description: submit_form
-        required: true
-
+  
 jobs:
   build:
     runs-on: ubuntu-latest
