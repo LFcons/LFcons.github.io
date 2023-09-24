@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
        // Effectuer une requête HTTP POST à l'API GitHub pour déclencher l'événement workflow_dispatch
-       fetch(secretLienduRepo, {
+       fetch("https://api.github.com/repos/LFcons/lfcons.github.io/dispatches", {
            method: "POST",
            headers: {
                "Authorization": "token " + secretTokenGitHub,
