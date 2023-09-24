@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("formulaireContactes");
     const messageContent = document.getElementById("message-content");
 
-    const secretLienduRepo = "${{ secrets.SECRET_URL_REQUETTE }}";
+    const secretLienduRepo = "https://api.github.com/repos/LFcons/lfcons.github.io/dispatches";
     const secretTokenGitHub = "${{ secrets.SECRET_TOKTOK }}"; 
     
     form.addEventListener("submit", function (event) {
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
        // Effectuer une requête HTTP POST à l'API GitHub pour déclencher l'événement workflow_dispatch
-       fetch("https://api.github.com/repos/LFcons/lfcons.github.io/dispatches", {
+       fetch(secretLienduRepo, {
            method: "POST",
            headers: {
                "Authorization": "token " + secretTokenGitHub,
