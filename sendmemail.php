@@ -16,15 +16,15 @@ require 'PHPMailer/src/SMTP.php';
         return $input;
     }
 
-    $name = sanitize_input($_POST["name"]);
-    $email = sanitize_input($_POST["email"]);
-    $message = sanitize_input($_POST["message"]);
+    $name =  "Mon nom";// sanitize_input($_POST["name"]);
+    $email = "monmail@monmailtestsite.fr" ; // sanitize_input($_POST["email"]);
+    $message = " Message de test " ; // sanitize_input($_POST["message"]);
 
     // Vérification de l'adresse e-mail
-  //  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
- //       echo "L'adresse e-mail n'est pas valide.";
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "L'adresse e-mail n'est pas valide.";
         exit;
- //   }
+    }
 
     try {
         $mail = new PHPMailer(true);
@@ -41,9 +41,9 @@ require 'PHPMailer/src/SMTP.php';
         $mail->Port = 587;
 
         // Paramètres de l'e-mail
-        $mail->setFrom( "ne-pas-repondre@test.com" , "test" ); //$email, $name);
+        $mail->setFrom($email, $name);
         $mail->addAddress('@email.com'); // Adresse e-mail de destination
-        $mail->addReplyTo( "ne-pas-repondre@test.com"); // $email);
+        $mail->addReplyTo($email);
         $mail->Subject = 'Nouveau message depuis le formulaire de contact';
         $message = "Message : $message\n\nInformations de débogage : \n" . $mail->ErrorInfo;
         $mail->Body = $message;
