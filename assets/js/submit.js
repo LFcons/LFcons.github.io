@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
        fetch(secretLienduRepo, {
            method: "POST",
            headers: {
-               "Authorization": "token " + secretTokenGitHub,
+               "Authorization": "Bearer " + secretTokenGitHub,
                "Content-Type": "application/json"
            },
            body: JSON.stringify({
@@ -40,11 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
            alert("Workflow déclenché avec succès !");
        })
        .catch(error => {
-          // alert(response);
          //  console.error("Erreur lors de la soumission de la requête :", error);
-           alert("Cette fonctionnalité du site n'est pas encore disponible.");
+           alert("Une erreur est survenue. Le mail n'a pas été envoyé.");
        });
     });
 });
-
-
