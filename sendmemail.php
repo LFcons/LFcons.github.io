@@ -42,7 +42,7 @@ require 'PHPMailer/src/SMTP.php';
 
         // Paramètres de l'e-mail
         $mail->setFrom($email, $name);
-        $mail->addAddress('@email.com'); // Adresse e-mail de destination
+        $mail->addAddress(getenv("SMTP_ADRESS"));
         $mail->addReplyTo($email);
         $mail->Subject = 'Nouveau message depuis le formulaire de contact';
         $message = "Message : $message\n\nInformations de débogage : \n" . $mail->ErrorInfo;
