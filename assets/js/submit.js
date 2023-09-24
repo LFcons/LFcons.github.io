@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
        fetch(secretLienduRepo, {
            method: "POST",
            headers: {
-               "Accept: application/vnd.github+json",
+               "Accept": "application/vnd.github+json",
                "Authorization": "Bearer " + secretTokenGitHub,
                "Content-Type": "application/json"
            },
