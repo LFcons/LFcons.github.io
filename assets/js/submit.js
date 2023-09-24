@@ -42,6 +42,9 @@ document.addEventListener("DOMContentLoaded", function () {
            alert("Cette fonctionnalité du site n'est pas encore disponible.");
        });
     });
+       function sanitizeInput(input) {
+        return input.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
 });
 
 
