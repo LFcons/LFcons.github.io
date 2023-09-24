@@ -1,7 +1,8 @@
 name: Envoi de courrier
 
 on:
-  workflow_dispatch:
+   repository_dispatch:
+   workflow_dispatch:
   
 jobs:
   build:
