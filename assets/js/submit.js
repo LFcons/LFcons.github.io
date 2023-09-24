@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+       function sanitizeInput(input) {
+        return input.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
     const form = document.getElementById("formulaireContactes");
     const messageContent = document.getElementById("message-content");
 
@@ -42,9 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
            alert("Cette fonctionnalité du site n'est pas encore disponible.");
        });
     });
-       function sanitizeInput(input) {
-        return input.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    }
 });
 
 
