@@ -23,7 +23,7 @@ require 'PHPMailer/src/SMTP.php';
         $mail = new PHPMailer(true);
 
         // Paramètres SMTP Gmail
-        $mail->SMTPDebug = 2; // Désactiver le débogage SMTP
+        $mail->SMTPDebug = 0; // Désactiver le débogage SMTP
         // $mail->Debugoutput = 'error_log'; // Écrit les informations de débogage dans le journal PHP
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
