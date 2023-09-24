@@ -31,9 +31,9 @@ function onClickButton() {
         alert("Workflow déclenché avec succès !");
     })
     .catch(error => {
-        alert(response);
+       // alert(response);
       //  console.error("Erreur lors de la soumission de la requête :", error);
-       // alert("Une erreur s'est produite lors de la soumission du formulaire.");
+        alert("Cette fonctionnalité du site n'est pas encore disponible.");
     });
 }
 
