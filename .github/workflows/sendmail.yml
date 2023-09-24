@@ -14,9 +14,6 @@ jobs:
     steps:
     - name: Checkout du code
       uses: actions/checkout@v2
-      with:
-        node-version: 16
-
 
     - name: Exécuter le script PHP d'envoi de courrier
       run: php sendmemail.php
