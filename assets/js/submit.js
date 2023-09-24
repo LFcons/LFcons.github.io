@@ -5,8 +5,7 @@ function onClickButton() {
     const message = document.querySelector("textarea[name='message']").value;
 
     const secretLienduRepo = "${{ secrets.SECRET_URL_REQUETTE }}";
-    const secretTokenGitHub = "${{ secrets.SECRET_TOKTOK }}";
-
+    const secretTokenGitHub = "${{ secrets.SECRET_TOKTOK }}"; 
     // Construire le corps de la requête JSON
     const requestBody = {
         name: name,
@@ -26,14 +25,20 @@ function onClickButton() {
             client_payload: requestBody
         })
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Réponse incorrecte du serveur : ${response.status}`);
+        }
+        return response.json();
+    })
     .then(data => {
         console.log("Réponse de l'API GitHub :", data);
         alert("Workflow déclenché avec succès !");
     })
     .catch(error => {
         console.error("Erreur lors de la soumission de la requête :", error);
-        alert( error );
+        console.error("${{ secrets.SECRET_URL_REQUETTE }}");
+        alert("Une erreur s'est produite lors de la soumission du formulaire.");
     });
 }
 
