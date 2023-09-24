@@ -1,6 +1,5 @@
-document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-
+// Fonction JavaScript à exécuter lors du clic sur le bouton
+function onClickButton() {
     const name = document.querySelector("input[name='name']").value;
     const email = document.querySelector("input[name='email']").value;
     const message = document.querySelector("textarea[name='message']").value;
@@ -36,4 +35,7 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
         console.error("Erreur lors de la soumission de la requête :", error);
         alert("Une erreur s'est produite lors de la soumission du formulaire.");
     });
-});
+}
+
+// Associez la fonction onClickButton au clic du bouton
+document.getElementById("submit_bouton").onclick = onClickButton;
