@@ -7,7 +7,6 @@ require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/SMTP.php';
 
-//if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Fonction pour nettoyer et valider les données
     function sanitize_input($input) {
         $input = trim($input);
@@ -16,22 +15,16 @@ require 'PHPMailer/src/SMTP.php';
         return $input;
     }
 
-    $name =  "Mon nom";// sanitize_input($_POST["name"]);
-    $email = "monmail@monmailtestsite.fr" ; // sanitize_input($_POST["email"]);
-    $message = " Message de test " ; // sanitize_input($_POST["message"]);
-
-    // Vérification de l'adresse e-mail
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "L'adresse e-mail n'est pas valide.";
-        exit;
-    }
+    $name = sanitize_input($_POST["name"]);
+    $email = sanitize_input($_POST["email"]);
+    $message = sanitize_input($_POST["message"]);
 
     try {
         $mail = new PHPMailer(true);
 
         // Paramètres SMTP Gmail
         $mail->SMTPDebug = 2; // Désactiver le débogage SMTP
-       // $mail->Debugoutput = 'error_log'; // Écrit les informations de débogage dans le journal PHP
+        // $mail->Debugoutput = 'error_log'; // Écrit les informations de débogage dans le journal PHP
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
@@ -44,18 +37,18 @@ require 'PHPMailer/src/SMTP.php';
         $mail->setFrom($email, $name);
         $mail->addAddress(getenv("SMTP_ADRESS"));
         $mail->addReplyTo($email);
-        $mail->Subject = 'Nouveau message depuis le formulaire de contact';
-        $message = "Message : $message\n\nInformations de débogage : \n" . $mail->ErrorInfo;
+        $mail->Subject = "$name Nouveau message formulaire de contact";
+        $message = "Message : $message\n\n " ;
         $mail->Body = $message;
 
         // Envoi de l'e-mail
         $mail->send();
-        echo "Votre message a été envoyé avec succès.";
+//        echo "Votre message a été envoyé avec succès.";
     } catch (Exception $e) {
-        echo "Une erreur s'est produite lors de l'envoi de votre message : {$mail->ErrorInfo}";
+//        echo "Une erreur s'est produite lors de l'envoi de votre message : {$mail->ErrorInfo}";
     }
 //} else {
 //    echo "Accès refusé.";
-    echo  $mail->ErrorInfo;
+//    echo  $mail->ErrorInfo;
 //}
 ?>

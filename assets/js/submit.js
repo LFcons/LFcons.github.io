@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
        fetch(secretLienduRepo, {
            method: "POST",
            headers: {
+               "Accept: application/vnd.github+json",
                "Authorization": "Bearer " + secretTokenGitHub,
                "Content-Type": "application/json"
            },
@@ -36,11 +37,11 @@ document.addEventListener("DOMContentLoaded", function () {
        })
        .then(response => response.json())
        .then(data => {
-           console.log("Réponse de l'API GitHub :", data);
-           alert("Workflow déclenché avec succès !");
+           //console.log("Réponse de l'API GitHub :", data);
+           alert("Mail envoyé avec succès !");
        })
        .catch(error => {
-         //  console.error("Erreur lors de la soumission de la requête :", error);
+           //console.error("Erreur lors de la soumission de la requête :", error);
            alert("Une erreur est survenue. Le mail n'a pas été envoyé.");
        });
     });
