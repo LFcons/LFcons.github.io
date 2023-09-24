@@ -24,34 +24,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         showMessage("Votre message a été validé avec succès.", "success");
- 
- 
- 
- //        const formData = new FormData(form);
- //        fetch("URL_DE_VOTRE_API_MAILGUN", {
- //            method: "POST",
- //           headers: {
- //                Authorization: "Basic " + btoa("api:VOTRE_CLE_API"),
- //            },
- //            body: formData,
- //        })
- //            .then((response) => response.json())
- //            .then((data) => {
- //                if (data.id) {
- //                    showMessage("Votre message a été envoyé avec succès.", "success");
- //                } else {
- //                    showMessage("Une erreur s'est produite lors de l'envoi du message.", "error");
- //                }
- //            })
- //            .catch((error) => {
- //                showMessage("Une erreur s'est produite lors de l'envoi du message.", "error");
- //            });
     });
 
     function showMessage(message, messageType) {
         messageContent.innerHTML = message;
         messageContainer.className = messageType;
-        messageContainer.style.display = "block";
+        messageContainer.style.display = "flex";
 
         setTimeout(function () {
             closeMessage();
