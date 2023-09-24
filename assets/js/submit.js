@@ -31,6 +31,7 @@ function onClickButton() {
         alert("Workflow déclenché avec succès !");
     })
     .catch(error => {
+        console.log(response)
         console.error("Erreur lors de la soumission de la requête :", error);
         alert("Une erreur s'est produite lors de la soumission du formulaire.");
     });
