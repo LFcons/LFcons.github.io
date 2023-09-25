@@ -14,14 +14,10 @@ require 'PHPMailer/src/SMTP.php';
         $input = htmlspecialchars($input);
         return $input;
     }
-    
-    $jsonData = file_get_contents("php://input");
-    $data = json_decode($jsonData, true);
 
-    $clientPayload = $data['client_payload'];
-    $name = sanitize_input($clientPayload['name']);
-    $email = sanitize_input($clientPayload["email"]);
-    $message = sanitize_input($clientPayload["message"]);
+    $name = sanitize_input( getenv("NAME") );
+    $email = sanitize_input( getenv("EMAIL") );
+    $message = sanitize_input( getenv("MESSAGE") );
 
     try {
         $mail = new PHPMailer(true);
