@@ -23,7 +23,7 @@ require 'PHPMailer/src/SMTP.php';
         $mail = new PHPMailer(true);
 
         // Paramètres SMTP Gmail
-        $mail->SMTPDebug = 0; // Désactiver le débogage SMTP
+        $mail->SMTPDebug = 2; // Désactiver le débogage SMTP
         // $mail->Debugoutput = 'error_log'; // Écrit les informations de débogage dans le journal PHP
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
@@ -43,12 +43,9 @@ require 'PHPMailer/src/SMTP.php';
 
         // Envoi de l'e-mail
         $mail->send();
-//        echo "Votre message a été envoyé avec succès.";
+        echo "ECHO : Votre message a été envoyé avec succès.  {$mail->ErrorInfo} ";
     } catch (Exception $e) {
         echo "Une erreur s'est produite lors de l'envoi de votre message : {$mail->ErrorInfo}";
-        echo $name;
-        echo $email;
-        echo $message;
     }
 //} else {
 //    echo "Accès refusé.";
