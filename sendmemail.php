@@ -46,7 +46,9 @@ require 'PHPMailer/src/SMTP.php';
 //        echo "Votre message a été envoyé avec succès.";
     } catch (Exception $e) {
         echo "Une erreur s'est produite lors de l'envoi de votre message : {$mail->ErrorInfo}";
-        echo $data;
+        echo $name;
+        echo $email;
+        echo $message;
     }
 //} else {
 //    echo "Accès refusé.";
