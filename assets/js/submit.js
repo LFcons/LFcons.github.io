@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const messageContent = document.getElementById("message-content");
 
     const secretLienduRepo = "https://api.github.com/repos/LFcons/lfcons.github.io/dispatches";
-    const secretTokenGitHub = "${{ secrets.SECRET_TOKTOK }}"; 
+    const test = "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"; 
     
     form.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
            method: "POST",
            headers: {
                "Accept": "application/vnd.github+json",
-               "Authorization": "Bearer " + secretTokenGitHub,
+               "Authorization": "Bearer " + test,
                "Content-Type": "application/json"
            },
            body: JSON.stringify({
