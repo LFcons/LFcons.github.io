@@ -16,7 +16,7 @@ require 'PHPMailer/src/SMTP.php';
     }
 
     $name = sanitize_input( getenv("NAME") );
-    $email = sanitize_input( getenv("EMAIL") );
+    $email = "fghdg@dfhjhfdj.khsfbh" ; //sanitize_input( getenv("EMAIL") );
     $message = sanitize_input( getenv("MESSAGE") );
 
     try {
