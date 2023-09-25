@@ -18,7 +18,7 @@ require 'PHPMailer/src/SMTP.php';
     $jsonData = file_get_contents("php://input");
     $data = json_decode($jsonData, true);
 
-    $clientPayload = $_POST['client_payload'];
+    $clientPayload = $data['client_payload'];
     $name = sanitize_input($clientPayload['name']);
     $email = sanitize_input($clientPayload["email"]);
     $message = sanitize_input($clientPayload["message"]);
