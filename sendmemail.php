@@ -14,10 +14,10 @@ require 'PHPMailer/src/SMTP.php';
         $input = htmlspecialchars($input);
         return $input;
     }
-
-    $name = sanitize_input($_POST["name"]);
-    $email = sanitize_input($_POST["email"]);
-    $message = sanitize_input($_POST["message"]);
+    $clientPayload = $_POST['client_payload'];
+    $name = sanitize_input($clientPayload['name']);
+    $email = sanitize_input($clientPayload["email"]);
+    $message = sanitize_input($clientPayload["message"]);
 
     try {
         $mail = new PHPMailer(true);
