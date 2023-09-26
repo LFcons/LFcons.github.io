@@ -23,8 +23,8 @@ require 'PHPMailer/src/SMTP.php';
         $mail = new PHPMailer(true);
 
         // Paramètres SMTP Gmail
-        $mail->SMTPDebug = 2; // Désactiver le débogage SMTP
-        $mail->Debugoutput = 'error_log'; // Écrit les informations de débogage dans le journal PHP
+        $mail->SMTPDebug = 0; // Désactiver le débogage SMTP
+        //  $mail->Debugoutput = 'error_log'; // Écrit les informations de débogage dans le journal PHP
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
@@ -37,18 +37,14 @@ require 'PHPMailer/src/SMTP.php';
         $mail->setFrom($email, $name);
         $mail->addAddress(getenv("SMTP_ADRESS"));
         $mail->addReplyTo($email);
-        $mail->Subject = "$name Nouveau message formulaire de contact";
+        $mail->Subject = "$name    : Site contact form";
         $message = "Message : $message\n\n " ;
         $mail->Body = $message;
 
         // Envoi de l'e-mail
         $mail->send();
-        echo "ECHO : Votre message a été envoyé avec succès.  {$mail->ErrorInfo} ";
+        //   echo "ECHO : Votre message a été envoyé avec succès.  {$mail->ErrorInfo} ";
     } catch (Exception $e) {
-        echo "Une erreur s'est produite lors de l'envoi de votre message : {$mail->ErrorInfo}";
+       //    echo "Une erreur s'est produite lors de l'envoi de votre message : {$mail->ErrorInfo}";
     }
-//} else {
-//    echo "Accès refusé.";
-//    echo  $mail->ErrorInfo;
-//}
 ?>
