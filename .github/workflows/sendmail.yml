@@ -23,9 +23,9 @@ jobs:
     env:
       SMTP_ADRESS: ${{ secrets.SMTP_ADRESS }}
       SMTP_P: ${{ secrets.SMTP_P }}
-        NAME: ${{ toJson(github.event.inputs.name) }}
-      EMAIL: ${{ toJson(github.event.inputs.email) }}
-      MESSAGE: ${{ toJson(github.event.inputs.message) }}
+      NAME: ${{ github.event.client_payload.name }}
+      EMAIL: ${{ github.event.client_payload.email }}
+      MESSAGE: ${{ github.event.client_payload.message }}
 
     steps:
     - name: Checkout du code
