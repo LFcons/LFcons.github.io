@@ -38,7 +38,14 @@ document.addEventListener("DOMContentLoaded", function () {
        //.then(response => response.json())
        .then(data => {
            //console.log("Réponse de l'API GitHub :", data);
-           alert("Mail envoyé avec succès !");
+            if (data.status === 200 || data.status === 204) {
+            // La requête a été traitée avec succès (statut 200 ou 204)
+            alert("Mail envoyé avec succès !");
+            } else {
+            // La requête a échoué avec un statut différent de 200 ou 204
+            alert("Une erreur est survenue lors de l'envoi du mail. Veuillez réessayer plus tard.");
+           }
+           //alert("Mail envoyé avec succès !");
        })
        .catch(error => {
            //console.log("Réponse de l'API GitHub :", data);
