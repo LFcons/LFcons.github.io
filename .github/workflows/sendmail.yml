@@ -2,6 +2,8 @@ name: Envoi de courrier
 
 on:
    repository_dispatch:
+      types:
+      - submit_form
    workflow_dispatch:
     inputs:
       name:
@@ -21,9 +23,9 @@ jobs:
     env:
       SMTP_ADRESS: ${{ secrets.SMTP_ADRESS }}
       SMTP_P: ${{ secrets.SMTP_P }}
-      NAME: ${{ github.event.inputs.name }}
-      EMAIL: ${{ github.event.inputs.email }}
-      MESSAGE: ${{ github.event.inputs.message }}
+        NAME: ${{ toJson(github.event.client_payload.name) }}
+      EMAIL: ${{ toJson(github.event.client_payload.email) }}
+      MESSAGE: ${{ toJson(github.event.client_payload.message) }}
 
     steps:
     - name: Checkout du code

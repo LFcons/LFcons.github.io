@@ -24,7 +24,7 @@ require 'PHPMailer/src/SMTP.php';
 
         // Paramètres SMTP Gmail
         $mail->SMTPDebug = 2; // Désactiver le débogage SMTP
-        // $mail->Debugoutput = 'error_log'; // Écrit les informations de débogage dans le journal PHP
+        $mail->Debugoutput = 'error_log'; // Écrit les informations de débogage dans le journal PHP
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
