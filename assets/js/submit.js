@@ -35,14 +35,15 @@ document.addEventListener("DOMContentLoaded", function () {
                client_payload: requestBody
            })
        })
-       .then(response => response.json())
+       //.then(response => response.json())
        .then(data => {
            //console.log("Réponse de l'API GitHub :", data);
            alert("Mail envoyé avec succès !");
        })
        .catch(error => {
+           //console.log("Réponse de l'API GitHub :", data);
            //console.error("Erreur lors de la soumission de la requête :", error);
-           alert("Une erreur est survenue. Le mail n'a pas été envoyé.");
+           alert("Une erreur est survenue. Le mail n'a pas été envoyé." );
        });
     });
 });
