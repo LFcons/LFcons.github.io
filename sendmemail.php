@@ -24,7 +24,7 @@ require 'PHPMailer/src/SMTP.php';
 
         // Paramètres SMTP Gmail
         $mail->SMTPDebug = 2; // Désactiver le débogage SMTP
-        $mail->Debugoutput = 'error_log'; // Écrit les informations de débogage dans le journal PHP
+          $mail->Debugoutput = 'error_log'; // Écrit les informations de débogage dans le journal PHP
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
@@ -34,11 +34,11 @@ require 'PHPMailer/src/SMTP.php';
         $mail->Port = 587;
 
         // Paramètres de l'e-mail
-        $mail->setFrom($email, $name);
+        $mail->setFrom( "FORMULAIRE.SITE.NOUVEAU.MESSAGE@NePasRepondre.ok" );
         $mail->addAddress(getenv("SMTP_ADRESS"));
-        $mail->addReplyTo($email);
-        $mail->Subject = "$name    : Site contact form";
-        $message = "Message : $message\n\n " ;
+//        $mail->addReplyTo($email);
+        $mail->Subject = "Nouveaux message formulaire de contact";
+        $message = "Message :   $email  \n\n  $name \n\n $message \n\n " ;
         $mail->Body = $message;
 
         // Envoi de l'e-mail
