@@ -24,8 +24,8 @@ jobs:
       SMTP_ADRESS: ${{ secrets.SMTP_ADRESS }}
       SMTP_P: ${{ secrets.SMTP_P }}
       NAME: ${{ github.event.client_payload.name }}
-      EMAIL: "${{ github.event.client_payload.email }}"
-      MESSAGE: "${{ github.event.client_payload.message }}"
+      EMAIL: ${{ github.event.client_payload.email }}
+      MESSAGE: ${{ github.event.client_payload.message }}
 
     steps:
     - name: Checkout du code
